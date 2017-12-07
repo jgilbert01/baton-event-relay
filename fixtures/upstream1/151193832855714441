@@ -1,0 +1,15 @@
+POST /
+content-type: application/x-amz-json-1.1
+x-amz-target: Kinesis_20131202.PutRecords
+host: kinesis.us-east-1.amazonaws.com
+body: {\"StreamName\":\"analytics_stream\",\"Records\":[{\"Data\":\"e30=\",\"PartitionKey\":\"1\"}]}
+
+HTTP/1.1 200 OK
+server: Apache-Coyote/1.1
+x-amzn-requestid: e9f23bc0-6254-9dbf-bb6a-60981918a35c
+x-amz-id-2: 4qIzH8cH02wQrlpPjcafcAxEMo+dXvBEsRVrJ4g78xUgEblwHaarNkKhmbyy27WHlfAUIvgkV6GBfiyBzTe7j5QszwtLjG5R
+content-type: application/x-amz-json-1.1
+content-length: 146
+date: Wed, 29 Nov 2017 06:52:07 GMT
+
+{"FailedRecordCount":0,"Records":[{"SequenceNumber":"49566104675323352857331951417026277489945855021086146610","ShardId":"shardId-000000000003"}]}
