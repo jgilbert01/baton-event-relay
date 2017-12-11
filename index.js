@@ -11,8 +11,8 @@ class EventTest {
 }
 
 const toEvent = (path, filename) => {
-  const content = Replay.catalog._read(path + '/' + filename);
-  // console.log(path + '/' + filename);
+  const content = Replay.catalog._read(path);
+  // console.log(path);
   // console.log(content);
   const body = JSON.parse(content.request.body ? content.request.body.split('\\\"').join('\"') : undefined);
 
@@ -34,6 +34,11 @@ const toEvent = (path, filename) => {
 }
 
 module.exports = (path) => {
-  const filenames = fs.readdirSync(path);
-  return filenames.map(filename => toEvent(path, filename));
+  const isDirectory = fs.lstatSync(path).isDirectory();
+  if (isDirectory) {
+    const filenames = fs.readdirSync(path);
+    return filenames.map(filename => toEvent(path + '/' + filename, filename));
+  } else {
+    return toEvent(path);
+  }
 }

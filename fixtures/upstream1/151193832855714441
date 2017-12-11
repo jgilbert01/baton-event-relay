@@ -2,7 +2,7 @@ POST /
 content-type: application/x-amz-json-1.1
 x-amz-target: Kinesis_20131202.PutRecords
 host: kinesis.us-east-1.amazonaws.com
-body: {\"StreamName\":\"analytics_stream\",\"Records\":[{\"Data\":\"e30=\",\"PartitionKey\":\"1\"}]}
+body: {\"StreamName\":\"stream\",\"Records\":[{\"Data\":\"e30=\",\"PartitionKey\":\"1\"}]}
 
 HTTP/1.1 200 OK
 server: Apache-Coyote/1.1

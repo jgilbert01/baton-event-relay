@@ -28,15 +28,26 @@ describe('event-relay', () => {
   //   ;
   // });
 
-  relay(`${__dirname}/fixtures/upstream1`).forEach(test => {
-    it(test.name, (done) => {
+  relay(`${__dirname}/fixtures/upstream1`).forEach(rec => {
+    it(rec.name, (done) => {
 
       ((event, ctx, cb) => {
         console.log(JSON.stringify(event, null, 2));
 
         cb();
-      })(test.event, {}, done);
+      })(rec.event, {}, done);
 
     });
+  });
+
+  it('should process single file', (done) => {
+    const rec = relay(`${__dirname}/fixtures/upstream1/151193832855714441`);
+
+    ((event, ctx, cb) => {
+      console.log(JSON.stringify(event, null, 2));
+
+      cb();
+    })(rec.event, {}, done);
+
   });
 });
