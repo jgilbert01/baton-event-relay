@@ -15,18 +15,25 @@ const toEvent = (path, filename) => {
   // console.log(path);
   // console.log(content);
   const body = JSON.parse(content.request.body ? content.request.body.split('\\\"').join('\"') : undefined);
+  // console.log(body);
 
   const t = {
     name: filename,
     filename: filename,
     event: {
-      Records: body.Records.map((r, i) => ({
+      Records: body.Records ? body.Records.map((r, i) => ({
         eventSource: 'aws:kinesis',
         kinesis: {
           sequenceNumber: i.toString(),
           data: r.Data,
         }
-      }))
+      })) : [{
+        eventSource: 'aws:kinesis',
+        kinesis: {
+          sequenceNumber: '1',
+          data: body.Data,
+        }
+      }]
     }
   };
 

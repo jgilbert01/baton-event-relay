@@ -1,6 +1,6 @@
 {
   "name": "baton-event-relay",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "John Gilbert <john.gilbert@danteinc.com> (danteinc.com)",
   "license": "ISC",
   "main": "index.js",
